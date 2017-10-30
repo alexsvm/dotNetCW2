@@ -35,6 +35,7 @@
             System.Windows.Forms.Label prof_imageLabel;
             System.Windows.Forms.Label prof_faculty_idLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.Label prof_faculty_idLabel1;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.prof_faculty_idTextBox = new System.Windows.Forms.TextBox();
@@ -60,12 +61,8 @@
             this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.professionDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.facultyDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,12 +88,19 @@
             this.openFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.prof_faculty_idComboBox = new System.Windows.Forms.ComboBox();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prof_faculty_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
             prof_idLabel = new System.Windows.Forms.Label();
             prof_nameLabel = new System.Windows.Forms.Label();
             prof_descLabel = new System.Windows.Forms.Label();
             prof_imageLabel = new System.Windows.Forms.Label();
             prof_faculty_idLabel = new System.Windows.Forms.Label();
+            prof_faculty_idLabel1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.professionBindingSource)).BeginInit();
@@ -171,6 +175,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(prof_faculty_idLabel1);
+            this.tabPage1.Controls.Add(this.prof_faculty_idComboBox);
             this.tabPage1.Controls.Add(prof_faculty_idLabel);
             this.tabPage1.Controls.Add(this.prof_faculty_idTextBox);
             this.tabPage1.Controls.Add(prof_imageLabel);
@@ -211,6 +217,7 @@
             // 
             // prof_imagePictureBox
             // 
+            this.prof_imagePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.prof_imagePictureBox.ContextMenuStrip = this.contextMenuStrip1;
             this.prof_imagePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.professionBindingSource, "prof_image", true));
             this.prof_imagePictureBox.Location = new System.Drawing.Point(138, 400);
@@ -227,7 +234,6 @@
             this.toolStripMenuItem3});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(191, 70);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // toolStripMenuItem1
             // 
@@ -248,14 +254,14 @@
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(190, 22);
             this.toolStripMenuItem3.Text = "Свойства";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // prof_descTextBox
             // 
             this.prof_descTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.professionBindingSource, "prof_desc", true));
             this.prof_descTextBox.Location = new System.Drawing.Point(138, 352);
+            this.prof_descTextBox.Multiline = true;
             this.prof_descTextBox.Name = "prof_descTextBox";
-            this.prof_descTextBox.Size = new System.Drawing.Size(100, 20);
+            this.prof_descTextBox.Size = new System.Drawing.Size(216, 42);
             this.prof_descTextBox.TabIndex = 7;
             // 
             // prof_nameTextBox
@@ -263,7 +269,7 @@
             this.prof_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.professionBindingSource, "prof_name", true));
             this.prof_nameTextBox.Location = new System.Drawing.Point(138, 307);
             this.prof_nameTextBox.Name = "prof_nameTextBox";
-            this.prof_nameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.prof_nameTextBox.Size = new System.Drawing.Size(216, 20);
             this.prof_nameTextBox.TabIndex = 5;
             // 
             // prof_idTextBox
@@ -389,6 +395,16 @@
             this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
             this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // professionDataGridView
             // 
             this.professionDataGridView.AllowUserToAddRows = false;
@@ -400,43 +416,14 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewImageColumn1,
-            this.dataGridViewTextBoxColumn7});
+            this.dataGridViewTextBoxColumn7,
+            this.prof_faculty_id});
             this.professionDataGridView.DataSource = this.professionBindingSource;
             this.professionDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.professionDataGridView.Location = new System.Drawing.Point(3, 3);
             this.professionDataGridView.Name = "professionDataGridView";
             this.professionDataGridView.Size = new System.Drawing.Size(875, 220);
             this.professionDataGridView.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "prof_id";
-            this.dataGridViewTextBoxColumn4.HeaderText = "prof_id";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "prof_name";
-            this.dataGridViewTextBoxColumn5.HeaderText = "prof_name";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "prof_desc";
-            this.dataGridViewTextBoxColumn6.HeaderText = "prof_desc";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.DataPropertyName = "prof_image";
-            this.dataGridViewImageColumn1.HeaderText = "prof_image";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "prof_faculty_id";
-            this.dataGridViewTextBoxColumn7.HeaderText = "prof_faculty_id";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // tabPage2
             // 
@@ -612,6 +599,7 @@
             this.facultyBindingNavigatorSaveItem.Name = "facultyBindingNavigatorSaveItem";
             this.facultyBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.facultyBindingNavigatorSaveItem.Text = "Сохранить данные";
+            this.facultyBindingNavigatorSaveItem.Click += new System.EventHandler(this.facultyBindingNavigatorSaveItem_Click);
             // 
             // facultyTableAdapter
             // 
@@ -642,14 +630,65 @@
             this.saveFileDialog1.DefaultExt = "jpeg";
             this.saveFileDialog1.Filter = "Jpeg files|*.jpg;*.jpeg|All files|*.*";
             // 
-            // toolStripButton1
+            // prof_faculty_idLabel1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            prof_faculty_idLabel1.AutoSize = true;
+            prof_faculty_idLabel1.Location = new System.Drawing.Point(282, 512);
+            prof_faculty_idLabel1.Name = "prof_faculty_idLabel1";
+            prof_faculty_idLabel1.Size = new System.Drawing.Size(73, 13);
+            prof_faculty_idLabel1.TabIndex = 12;
+            prof_faculty_idLabel1.Text = "prof faculty id:";
+            // 
+            // prof_faculty_idComboBox
+            // 
+            this.prof_faculty_idComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.professionBindingSource, "prof_faculty_id", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.prof_faculty_idComboBox.DataSource = this.facultyBindingSource;
+            this.prof_faculty_idComboBox.DisplayMember = "faculty_name";
+            this.prof_faculty_idComboBox.Location = new System.Drawing.Point(361, 509);
+            this.prof_faculty_idComboBox.Name = "prof_faculty_idComboBox";
+            this.prof_faculty_idComboBox.Size = new System.Drawing.Size(178, 21);
+            this.prof_faculty_idComboBox.TabIndex = 13;
+            this.prof_faculty_idComboBox.ValueMember = "faculty_id";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "prof_id";
+            this.dataGridViewTextBoxColumn4.HeaderText = "prof_id";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "prof_name";
+            this.dataGridViewTextBoxColumn5.HeaderText = "prof_name";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "prof_desc";
+            this.dataGridViewTextBoxColumn6.HeaderText = "prof_desc";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "prof_image";
+            this.dataGridViewImageColumn1.HeaderText = "prof_image";
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "prof_faculty_id";
+            this.dataGridViewTextBoxColumn7.HeaderText = "prof_faculty_id";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // prof_faculty_id
+            // 
+            this.prof_faculty_id.DataPropertyName = "prof_faculty_id";
+            this.prof_faculty_id.DataSource = this.facultyBindingSource;
+            this.prof_faculty_id.DisplayMember = "faculty_name";
+            this.prof_faculty_id.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.prof_faculty_id.HeaderText = "prof_faculty_id";
+            this.prof_faculty_id.Name = "prof_faculty_id";
+            this.prof_faculty_id.ValueMember = "faculty_id";
             // 
             // Form1
             // 
@@ -728,11 +767,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
         private System.Windows.Forms.DataGridView professionDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
@@ -741,6 +775,13 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ComboBox prof_faculty_idComboBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewComboBoxColumn prof_faculty_id;
     }
 }
 

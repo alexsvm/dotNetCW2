@@ -37,14 +37,6 @@ namespace dotNetCW2
 
         }
 
-        private void facultyBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.facultyBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.databaseDataSet);
-
-        }
-
         private void fillByToolStripButton_Click(object sender, EventArgs e)
         {
             try
@@ -55,11 +47,6 @@ namespace dotNetCW2
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
-
-        }
-
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
 
         }
 
@@ -94,10 +81,11 @@ namespace dotNetCW2
             }
         }
 
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        { // Properties
-
-
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.professionBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.databaseDataSet);
         }
     }
 }
