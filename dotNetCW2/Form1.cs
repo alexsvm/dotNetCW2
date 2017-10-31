@@ -32,9 +32,6 @@ namespace dotNetCW2
             this.professionTableAdapter.Fill(this.databaseDataSet.profession);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "databaseDataSet.faculty". При необходимости она может быть перемещена или удалена.
             this.facultyTableAdapter.Fill(this.databaseDataSet.faculty);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "databaseDataSet.faculty". При необходимости она может быть перемещена или удалена.
-            this.facultyTableAdapter.Fill(this.databaseDataSet.faculty);
-
         }
 
         private void fillByToolStripButton_Click(object sender, EventArgs e)
@@ -86,6 +83,18 @@ namespace dotNetCW2
             this.Validate();
             this.professionBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.databaseDataSet);
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            var frmProp = new frmProperties();
+            frmProp.propertyGrid1.SelectedObject = prof_imagePictureBox;
+            frmProp.Show();
+        }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
