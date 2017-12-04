@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
@@ -28,9 +22,7 @@ namespace dotNetCW2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "databaseDataSet.profession". При необходимости она может быть перемещена или удалена.
             this.professionTableAdapter.Fill(this.databaseDataSet.profession);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "databaseDataSet.faculty". При необходимости она может быть перемещена или удалена.
             this.facultyTableAdapter.Fill(this.databaseDataSet.faculty);
         }
 
