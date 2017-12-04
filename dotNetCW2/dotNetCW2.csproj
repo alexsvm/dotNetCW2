@@ -91,6 +91,7 @@
     <None Include="databaseDataSet.xss">
       <DependentUpon>databaseDataSet.xsd</DependentUpon>
     </None>
+    <None Include="dotNet._АВМ._Контр._работа_2.doc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

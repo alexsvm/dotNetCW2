@@ -33,7 +33,6 @@
             System.Windows.Forms.Label prof_nameLabel;
             System.Windows.Forms.Label prof_descLabel;
             System.Windows.Forms.Label prof_imageLabel;
-            System.Windows.Forms.Label prof_faculty_idLabel;
             System.Windows.Forms.Label prof_faculty_idLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -42,7 +41,6 @@
             this.professionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.databaseDataSet = new dotNetCW2.databaseDataSet();
             this.facultyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.prof_faculty_idTextBox = new System.Windows.Forms.TextBox();
             this.prof_imagePictureBox = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +63,12 @@
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.professionDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prof_faculty_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.facultyDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,17 +96,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prof_faculty_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
             prof_idLabel = new System.Windows.Forms.Label();
             prof_nameLabel = new System.Windows.Forms.Label();
             prof_descLabel = new System.Windows.Forms.Label();
             prof_imageLabel = new System.Windows.Forms.Label();
-            prof_faculty_idLabel = new System.Windows.Forms.Label();
             prof_faculty_idLabel1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -157,19 +154,10 @@
             prof_imageLabel.TabIndex = 8;
             prof_imageLabel.Text = "Картинка:";
             // 
-            // prof_faculty_idLabel
-            // 
-            prof_faculty_idLabel.AutoSize = true;
-            prof_faculty_idLabel.Location = new System.Drawing.Point(43, 520);
-            prof_faculty_idLabel.Name = "prof_faculty_idLabel";
-            prof_faculty_idLabel.Size = new System.Drawing.Size(89, 13);
-            prof_faculty_idLabel.TabIndex = 10;
-            prof_faculty_idLabel.Text = "ИД факультета:";
-            // 
             // prof_faculty_idLabel1
             // 
             prof_faculty_idLabel1.AutoSize = true;
-            prof_faculty_idLabel1.Location = new System.Drawing.Point(266, 520);
+            prof_faculty_idLabel1.Location = new System.Drawing.Point(43, 519);
             prof_faculty_idLabel1.Name = "prof_faculty_idLabel1";
             prof_faculty_idLabel1.Size = new System.Drawing.Size(89, 13);
             prof_faculty_idLabel1.TabIndex = 12;
@@ -192,8 +180,6 @@
             // 
             this.tabPage1.Controls.Add(prof_faculty_idLabel1);
             this.tabPage1.Controls.Add(this.prof_faculty_idComboBox);
-            this.tabPage1.Controls.Add(prof_faculty_idLabel);
-            this.tabPage1.Controls.Add(this.prof_faculty_idTextBox);
             this.tabPage1.Controls.Add(prof_imageLabel);
             this.tabPage1.Controls.Add(this.prof_imagePictureBox);
             this.tabPage1.Controls.Add(prof_descLabel);
@@ -217,7 +203,7 @@
             this.prof_faculty_idComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.professionBindingSource, "prof_faculty_id", true));
             this.prof_faculty_idComboBox.DataSource = this.facultyBindingSource;
             this.prof_faculty_idComboBox.DisplayMember = "faculty_name";
-            this.prof_faculty_idComboBox.Location = new System.Drawing.Point(361, 517);
+            this.prof_faculty_idComboBox.Location = new System.Drawing.Point(138, 516);
             this.prof_faculty_idComboBox.Name = "prof_faculty_idComboBox";
             this.prof_faculty_idComboBox.Size = new System.Drawing.Size(178, 21);
             this.prof_faculty_idComboBox.TabIndex = 13;
@@ -237,14 +223,6 @@
             // 
             this.facultyBindingSource.DataMember = "faculty";
             this.facultyBindingSource.DataSource = this.databaseDataSet;
-            // 
-            // prof_faculty_idTextBox
-            // 
-            this.prof_faculty_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.professionBindingSource, "prof_faculty_id", true));
-            this.prof_faculty_idTextBox.Location = new System.Drawing.Point(138, 517);
-            this.prof_faculty_idTextBox.Name = "prof_faculty_idTextBox";
-            this.prof_faculty_idTextBox.Size = new System.Drawing.Size(100, 20);
-            this.prof_faculty_idTextBox.TabIndex = 11;
             // 
             // prof_imagePictureBox
             // 
@@ -457,6 +435,51 @@
             this.professionDataGridView.Name = "professionDataGridView";
             this.professionDataGridView.Size = new System.Drawing.Size(875, 220);
             this.professionDataGridView.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "prof_id";
+            this.dataGridViewTextBoxColumn4.HeaderText = "ИД";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "prof_name";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Наименование";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "prof_desc";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Описание";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 200;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "prof_image";
+            this.dataGridViewImageColumn1.HeaderText = "Картинка";
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "prof_faculty_id";
+            this.dataGridViewTextBoxColumn7.HeaderText = "ИД факультета";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 120;
+            // 
+            // prof_faculty_id
+            // 
+            this.prof_faculty_id.DataPropertyName = "prof_faculty_id";
+            this.prof_faculty_id.DataSource = this.facultyBindingSource;
+            this.prof_faculty_id.DisplayMember = "faculty_name";
+            this.prof_faculty_id.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.prof_faculty_id.HeaderText = "ИД факультета";
+            this.prof_faculty_id.Name = "prof_faculty_id";
+            this.prof_faculty_id.ValueMember = "faculty_id";
+            this.prof_faculty_id.Width = 160;
             // 
             // tabPage2
             // 
@@ -679,54 +702,9 @@
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(108, 22);
             this.toolStripMenuItem5.Text = "Выход";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "prof_id";
-            this.dataGridViewTextBoxColumn4.HeaderText = "ИД";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "prof_name";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Наименование";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "prof_desc";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Описание";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 200;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.DataPropertyName = "prof_image";
-            this.dataGridViewImageColumn1.HeaderText = "Картинка";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "prof_faculty_id";
-            this.dataGridViewTextBoxColumn7.HeaderText = "ИД факультета";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 120;
-            // 
-            // prof_faculty_id
-            // 
-            this.prof_faculty_id.DataPropertyName = "prof_faculty_id";
-            this.prof_faculty_id.DataSource = this.facultyBindingSource;
-            this.prof_faculty_id.DisplayMember = "faculty_name";
-            this.prof_faculty_id.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.prof_faculty_id.HeaderText = "ИД факультета";
-            this.prof_faculty_id.Name = "prof_faculty_id";
-            this.prof_faculty_id.ValueMember = "faculty_id";
-            this.prof_faculty_id.Width = 160;
             // 
             // Form1
             // 
@@ -736,7 +714,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = ".Net Контрольная работа № 2 (Мамаков А.В. З16-ИВТ)";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -791,7 +769,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private databaseDataSetTableAdapters.professionTableAdapter professionTableAdapter;
         private System.Windows.Forms.BindingSource professionBindingSource;
-        private System.Windows.Forms.TextBox prof_faculty_idTextBox;
         private System.Windows.Forms.PictureBox prof_imagePictureBox;
         private System.Windows.Forms.TextBox prof_descTextBox;
         private System.Windows.Forms.TextBox prof_nameTextBox;
